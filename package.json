@@ -1,6 +1,10 @@
 {
-  "name": "web",
+  "name": "Findings",
   "version": "0.1.0",
+  "description": "Web front-end project for Findings",
+  "keywords": [],
+  "homepage": "http://www.findings.co.kr",
+  "main": "src/index.js",
   "private": true,
   "dependencies": {
     "@babel/core": "7.4.3",
@@ -19,6 +23,7 @@
     "babel-preset-react-app": "^8.0.0",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
     "classnames": "^2.2.6",
+    "cross-env": "^5.2.0",
     "css-baseline": "^1.1.4",
     "css-loader": "2.1.1",
     "dotenv": "6.2.0",
