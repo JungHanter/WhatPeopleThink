@@ -1,9 +1,9 @@
 {
-  "name": "Findings",
+  "name": "WhatPeopleThink",
   "version": "0.1.0",
-  "description": "Web front-end project for Findings",
+  "description": "What people think ... ? Resolve your curiosity.",
   "keywords": [],
-  "homepage": "http://www.findings.co.kr",
+  "homepage": "http://www.whatpeoplething.ai",
   "main": "src/index.js",
   "private": true,
   "dependencies": {
