@@ -20,7 +20,7 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import useStyles from './MyAppBarStyles.js'
 
 function MyAppBar() {
-  const classes = useStyles();
+  const styles = useStyles();
   const [mobileMainAnchorEl, setMobileMainAnchorEl] = React.useState(null);
   const [mobileSubAnchorEl, setMobileSubAnchorEl] = React.useState(null);
 
@@ -73,19 +73,19 @@ function MyAppBar() {
   );
 
   return (
-    <div className={classes.grow}>
+    <div className={styles.grow}>
       <AppBar position="static">
-        <Toolbar className={classes.toolbar}>
+        <Toolbar className={styles.toolbar}>
 
-          <Typography className={classes.title} variant="h6" noWrap>
-            <Link href={'#'} className={classes.link} color="inherit" style={{ textDecoration: 'none' }}>
+          <Typography className={styles.title} variant="h6" noWrap>
+            <Link href={'#'} className={styles.link} color="inherit" style={{ textDecoration: 'none' }}>
               What People Think
             </Link>
           </Typography>
 
-          <div className={classes.sectionDesktopMainMenu}>
+          <div className={styles.sectionDesktopMainMenu}>
             <Button color="inherit">
-              Debate
+              Poll
             </Button>
 
             <Button color="inherit">
@@ -97,10 +97,10 @@ function MyAppBar() {
             </Button>
           </div>
 
-          <div className={classes.sectionMobileMainMenu}>
+          <div className={styles.sectionMobileMainMenu}>
             <IconButton
               edge="start"
-              className={classes.mobileMainMenuButton}
+              className={styles.mobileMainMenuButton}
               onClick={handleMobileMainMenuOpen}
               color="inherit"
               aria-label="Open drawer"
@@ -109,24 +109,24 @@ function MyAppBar() {
             </IconButton>
           </div>
 
-          <div className={classes.grow} />
+          <div className={styles.grow} />
 
-          <div className={classes.sectionSearch}>
-            <div className={classes.searchIcon}>
+          <div className={styles.sectionSearch}>
+            <div className={styles.searchIcon}>
               <SearchIcon />
             </div>
             <InputBase
               placeholder="Search…"
               classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
+                root: styles.inputRoot,
+                input: styles.inputInput,
               }}
             />
           </div>
 
           {/*<div className={classes.grow} />*/}
 
-          <div className={classes.sectionDesktopSubMenu}>
+          <div className={styles.sectionDesktopSubMenu}>
             <IconButton
               // edge="end"
               aria-owns={isMobileMainMenuOpen ? 'material-appbar' : undefined}
@@ -137,7 +137,7 @@ function MyAppBar() {
             </IconButton>
           </div>
 
-          <div className={classes.sectionMobileSubMenu}>
+          <div className={styles.sectionMobileSubMenu}>
             <IconButton
               aria-haspopup="true"
               onClick={handleMobileSubMenuOpen}
