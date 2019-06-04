@@ -5,7 +5,7 @@ import CardList from '../components/CardList';
 
 import useStyles from './styles'
 
-function Poll() {
+function PollPage() {
   const styles = useStyles();
 
   return (
@@ -17,4 +17,4 @@ function Poll() {
   );
 }
 
-export default Poll;
+export default PollPage;

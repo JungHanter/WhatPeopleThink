@@ -1,3 +1,3 @@
-export { default as Home } from './Home';
-export { default as Search } from './Vote';
-export { default as Poll } from './Poll';
+export { default as MainPage } from './MainPage';
+export { default as PollPage } from './PollPage';
+export { default as PollItemPage } from './PollItemPage';

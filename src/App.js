@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Route } from 'react-router-dom';
 
-import { Home, Search, Poll } from "./pages";
+import { MainPage, PollPage, PollItemPage } from "./pages";
 
 import { AppBar, CssBaseline, Toolbar, Typography, Button, IconButton, InputBase } from "@material-ui/core";
 import { deepPurple, teal, lightBlue, deepOrange, lightGreen, amber, grey } from "@material-ui/core/colors";
@@ -76,9 +76,9 @@ function App() {
         <MyAppBar />
 
         <div className={styles.root}>
-          <Route exact path="/" component={Home} /> {/* exact keyword for matching root(/) path */}
-          <Route path="/search" component={Search} />
-          <Route path="/poll" component={Poll} />
+          <Route exact path="/" component={MainPage} /> {/* exact keyword for matching root(/) path */}
+          <Route path="/poll" component={PollPage} />
+          <Route path="/poll/item" component={PollItemPage} />
         </div>
 
       </React.Fragment>
