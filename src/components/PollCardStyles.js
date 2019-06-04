@@ -51,9 +51,21 @@ const useStyles = makeStyles(theme => ({
   },
   voteInfo: {
     color: '#fff',
-    // height: '100%',
-    width: '50%',
+    width: '40%',
+    marginLeft: '5%',
     marginTop: theme.spacing(0.8),
+    textAlign: 'center',
+    align: 'center',
+    display: 'inline-block',
+  },
+  voteInfoSecond: {
+    marginLeft: 0,
+    marginRight: '5%',
+  },
+  voteInfoVersus: {
+    color: '#fff',
+    width: '10%',
+    marginTop: theme.spacing(1.2),
     textAlign: 'center',
     align: 'center',
     display: 'inline-block',

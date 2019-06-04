@@ -39,7 +39,10 @@ const PollCard = () => {
             <Typography noWrap variant="h4" component="h4" align="center" className={styles.voteInfo}>
               숨겨준다
             </Typography>
-            <Typography noWrap variant="h4" component="h4" align="center" className={styles.voteInfo}>
+            <Typography noWrap variant="h6" component="div" align="center" className={styles.voteInfoVersus}>
+              VS
+            </Typography>
+            <Typography noWrap variant="h4" component="h4" align="center" className={classNames(styles.voteInfo, styles.voteInfoSecond)}>
               신고한다
             </Typography>
           </div>
