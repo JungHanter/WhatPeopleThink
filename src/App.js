@@ -33,7 +33,7 @@ const theme = createMuiTheme({
       // default: '#000',
       // paper: '#000',
       // primary: '#000',
-      // secondary: grey[500]
+      // secondary: '#fff',
     },
     primary: deepPurple,
     secondary: deepOrange,

@@ -6,16 +6,66 @@ const useStyles = makeStyles(theme => ({
     // maxWidth: 400,
     // padding: theme.spacing(3, 2),
   },
-  cardContent: {
+  cardContentContainer: {
     // height: 500,
+    // zIndex: 3
   },
-  media: {
-    height: 140,
+
+  voteOverlay: {
+    position: 'relative',
+    width: '100%',
+    height: 180,
+    [theme.breakpoints.up('sm')]: {
+      height: 200,
+    },
+    [theme.breakpoints.up('md')]: {
+      height: 200,
+    },
+    [theme.breakpoints.up('lg')]: {
+      height: 240,
+    },
+  },
+
+  voteImageContainer: {
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    // zIndex: 1,
+  },
+  voteImage: {
+    height: '100%',
+    width: '50%',
+    display: 'inline-block',
+  },
+
+  voteInfoContainer: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    width: '100%',
+    height: theme.spacing(7),
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    // zIndex: 2
+  },
+  voteInfo: {
+    color: '#fff',
+    // height: '100%',
+    width: '50%',
+    marginTop: theme.spacing(0.8),
+    textAlign: 'center',
+    align: 'center',
+    display: 'inline-block',
+  },
+
+  pollDesc: {
+
   },
   topic: {  //title
 
   },
-  desc: {
+  detail: {
 
   },
   addition: {
