@@ -72,16 +72,17 @@ function App() {
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
-      <React.Fragment>
+
+      <Fragment>
         <MyAppBar />
 
         <div className={styles.root}>
           <Route exact path="/" component={MainPage} /> {/* exact keyword for matching root(/) path */}
-          <Route path="/poll" component={PollPage} />
+          <Route exact path="/poll" component={PollPage} />
           <Route path="/poll/item" component={PollItemPage} />
         </div>
 
-      </React.Fragment>
+      </Fragment>
     </MuiThemeProvider>
   );
 }
