@@ -71,13 +71,13 @@ const useStyles = makeStyles(theme => ({
     display: 'inline-block',
   },
 
-  pollDesc: {
+  voteContent: {
 
   },
-  topic: {  //title
+  voteTopic: {  //title
 
   },
-  detail: {
+  voteDesc: {
 
   },
   addition: {

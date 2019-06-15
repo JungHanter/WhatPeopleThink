@@ -48,11 +48,11 @@ const PollCard = () => {
           </div>
         </div>
 
-        <CardContent className={styles.pollDesc}>
-          <Typography gutterBottom variant="h5" component="h2" className={styles.topic}>
+        <CardContent className={styles.voteContent}>
+          <Typography gutterBottom variant="h5" component="h2" className={styles.voteTopic}>
             탈주범이 되어 돌아온 당신의 가장 친한 친구
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p" className={styles.detail}>
+          <Typography variant="body2" color="textSecondary" component="p" className={styles.voteDesc}>
             큰 범죄를 저지른 당신의 가장 친한 친구가 감옥에서 탈출해 돌아왔다. 숨겨달라고 당신을 찾아온 친구, 당신은 어떻게 할 것인가?
           </Typography>
         </CardContent>
