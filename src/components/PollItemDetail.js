@@ -44,6 +44,20 @@ const PollItemDetail = ({editable}) => {
           <Typography component="p">
             {pollInfo.desc}
           </Typography>
+
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+              <Typography variant="h6" component="h5" gutterBottom>
+                입장 A: {pollInfo.stanceLeft}
+              </Typography>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Typography variant="h6" component="h5" gutterBottom>
+                입장 B: {pollInfo.stanceRight}
+              </Typography>
+            </Grid>
+          </Grid>
+
         </React.Fragment>
       <Divider className={styles.testDivider} />
       {/*) : (*/}
