@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {Component} from 'react';
 
+import { withStyles, withTheme } from '@material-ui/styles';
 import Grid from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
@@ -7,49 +8,63 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 
 import classNames from 'classnames';
-import useStyles from './ImageSelectorStyles';
-import {PropTypes} from "prop-types";
-import PollItemDetail from "./PollItemDetail";
+import styles from './ImageSelectorStyles';
+import PropTypes from 'prop-types';
 
-const ImageSelector = () => {
-  const [image, setImage] = React.useState({
-    selected: true,
-    url: 'https://i.imgur.com/mNS6wtc.jpg'
-  });
+// @withStyles(styles)
+class ImageSelector extends Component {
+  constructor(props)  {
+    super(props);
 
-  const styles = useStyles();
+    this.state = {
+      image : {
+        selected: true,
+        url: 'https://i.imgur.com/mNS6wtc.jpg'
+      }
+    }
+  }
 
-  return (
-    <ButtonBase
-      focusRipple
-      key={image.title}
-      className={classNames(
-        styles.imageSelector,
-        'MuiButtonBase-root', 'MuiButton-root', 'MuiButton-outlined'
-      )}
-      focusVisibleClassName={styles.buttonFocusVisible}
-    >
+  //before update props.
+  componentWillReceiveProps(nextProps) {
+    // if
+  }
+
+  render() {
+    const styles = this.props.classes;
+    const image = this.state.image;
+
+    return (
+      <ButtonBase
+        focusRipple
+        key={image.title}
+        className={classNames(
+          styles.imageSelector, styles.imageButtonBase,
+          'MuiButtonBase-root', 'MuiButton-root', 'MuiButton-outlined',
+        )}
+        focusVisibleClassName={styles.buttonFocusVisible}
+      >
       <span
         className={styles.imageSrc}
         style={{
           backgroundImage: `url(${image.url})`,
         }}
       />
-      <span className={styles.imageBackdrop} />
-      <span className={styles.imageButton}>
-        <Typography
-          component="span"
-          variant="subtitle1"
-          color="inherit"
-          className={styles.imageTitle}
-        >
-          +
-          <span className={styles.imageMarked} />
-        </Typography>
-      </span>
-    </ButtonBase>
-  );
-};
+        <span className={styles.imageBackdrop} />
+        <span className={styles.imageButton}>
+          <Typography
+            component="span"
+            variant="subtitle1"
+            color="inherit"
+            className={styles.imageTitle}
+          >
+            +
+            <span className={styles.imageMarked} />
+          </Typography>
+        </span>
+      </ButtonBase>
+    );
+  }
+}
 
 ImageSelector.defaultProps = {
   defaultImage: null,
@@ -61,4 +76,4 @@ ImageSelector.propsTypes = {
   onImageSelected: PropTypes.func,
 };
 
-export default ImageSelector;
+export default withStyles(styles)(ImageSelector);

@@ -1,6 +1,8 @@
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles(theme => ({
+// const styles = theme => console.log(theme) || ({
+const styles = theme => ({
+  imageButtonBase: {
+    overflow: 'hidden',
+  },
   imageSelector: {
     position: 'relative',
     width: '100%',
@@ -38,9 +40,9 @@ const useStyles = makeStyles(theme => ({
     right: 0,
     top: 0,
     bottom: 0,
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: 'black',
     opacity: 0.4,
-    transition: theme.transitions.create('opacity'),
+    // transition: theme.transitions.create('opacity'),
   },
 
   imageButton: {
@@ -52,7 +54,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    color: theme.palette.common.white,
+    color: 'white',
   },
 
   imageTitle: {
@@ -62,12 +64,12 @@ const useStyles = makeStyles(theme => ({
   imageMarked: {
     height: 3,
     width: 18,
-    backgroundColor: theme.palette.common.white,
+    backgroundColor: 'black',
     position: 'absolute',
     bottom: -2,
     left: 'calc(50% - 9px)',
     transition: theme.transitions.create('opacity'),
   },
-}));
+});
 
-export default useStyles;
+export default styles;
