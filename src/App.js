@@ -8,7 +8,7 @@ import { deepPurple, teal, lightBlue, deepOrange, lightGreen, amber, grey } from
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
 
-import MyAppBar from './components/MyAppBar'
+import MyAppBar from './components/MyAppBar';
 
 const theme = createMuiTheme({
   typography: {

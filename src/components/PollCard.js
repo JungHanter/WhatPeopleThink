@@ -10,10 +10,10 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-import useStyles from './PollCardStyles.js'
+import useStyles from './PollCardStyles.js';
 
-import imgHideFugitive from '../assets/images/hideFugitive.jpg'
-import imgNotifyFugitive from '../assets/images/notifyFugitive.jpg'
+import imgHideFugitive from '../assets/images/hideFugitive.jpg';
+import imgNotifyFugitive from '../assets/images/notifyFugitive.jpg';
 
 const PollCard = () => {
   const styles = useStyles();

@@ -4,7 +4,7 @@ import React, { Fragment } from 'react';
 import PollItemDetail from "../components/PollItemDetail";
 import Typography from '@material-ui/core/Typography';
 
-import useStyles from './styles'
+import useStyles from './styles';
 import {PropTypes} from "prop-types";
 
 const PollItemPage = ({newItem, itemId}) => {
