@@ -1,13 +1,15 @@
 import React, {Fragment, useEffect} from 'react';
 
 import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper'
-import Grid from '@material-ui/core/Grid'
-import Divider from '@material-ui/core/Divider'
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import Divider from '@material-ui/core/Divider';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import ImageSeletor from './ImageSelector';
 
-import useStyles from './PollItemDetailStyles'
+import useStyles from './PollItemDetailStyles';
+
 import {PropTypes} from "prop-types";
 
 const PollItemDetail = ({editable}) => {
@@ -20,6 +22,11 @@ const PollItemDetail = ({editable}) => {
 
   const handlePollInfoFormChange = name => event => {
     setPollInfo({ ...pollInfo, [name]: event.target.value });
+  };
+
+  const handleFileLoad = (e, file) => {
+    console.log(e.target.result);
+    console.log(file);
   };
 
   const styles = useStyles();
@@ -106,6 +113,7 @@ const PollItemDetail = ({editable}) => {
                   margin="normal"
                   variant="outlined"
                 />
+                <ImageSeletor />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <Typography variant="h5" component="h5" gutterBottom>
@@ -123,6 +131,7 @@ const PollItemDetail = ({editable}) => {
                   margin="normal"
                   variant="outlined"
                 />
+                <ImageSeletor />
               </Grid>
             </Grid>
 
