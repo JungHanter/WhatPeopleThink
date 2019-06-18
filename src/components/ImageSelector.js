@@ -17,16 +17,29 @@ class ImageSelector extends Component {
     super(props);
 
     this.state = {
-      image : {
+      image: {
         selected: true,
-        url: 'https://i.imgur.com/mNS6wtc.jpg'
-      }
+        url: 'https://i.imgur.com/mNS6wtc.jpg',
+      },
+      initializedWithImage: false,
     }
   }
 
-  //before update props.
+  //before update props --> change state when props updated
   componentWillReceiveProps(nextProps) {
-    // if
+    if (!this.state.initializedWithImage && nextProps.defaultImage)
+    {
+      //initial image once
+      this.setState({
+        initializedWithImage: true,
+      });
+      this.setState({
+        image: {
+          selected: true,
+          url: nextProps.defaultImage,
+        },
+      });
+    }
   }
 
   render() {
