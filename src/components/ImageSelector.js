@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import { withStyles, withTheme } from '@material-ui/styles';
+import { withStyles } from '@material-ui/styles';
 import Grid from "@material-ui/core/Grid";
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
@@ -18,28 +18,52 @@ class ImageSelector extends Component {
 
     this.state = {
       image: {
-        selected: true,
-        url: 'https://i.imgur.com/mNS6wtc.jpg',
+        selected: false,
+        url: null,
       },
-      initializedWithImage: false,
+      // image: {
+      //   selected: true,
+      //   url: 'https://i.imgur.com/mNS6wtc.jpg',
+      // },
+      initialized: false,
     }
   }
 
-  //before update props --> change state when props updated
-  componentWillReceiveProps(nextProps) {
-    if (!this.state.initializedWithImage && nextProps.defaultImage)
+  handleClick = (e) => {
+    const image = this.state.image;
+
+    if (image.selected) {
+      this.setState(
+        {image: {selected: false, url: null}}
+      );
+    } else {
+      this.setState(
+        {image: {selected: true, url: 'https://i.imgur.com/mNS6wtc.jpg'}} //temp dummy
+      );
+    }
+
+    this.props.onImageSelected(image.selected, image.url);
+  }
+
+  //before mount with props --> change state when props updated
+  componentWillMount() {
+    if (!this.state.initialized && this.props.defaultImage)
     {
-      //initial image once
-      this.setState({
-        initializedWithImage: true,
-      });
       this.setState({
         image: {
           selected: true,
-          url: nextProps.defaultImage,
+          url: this.props.defaultImage,
         },
       });
+      console.log ("Intialize Image with url=" + this.props.defaultImage);
     }
+
+    //initial image once
+    this.setState({
+      initialized: true,
+    });
+
+    console.log("componentWillMount()");
   }
 
   render() {
@@ -54,14 +78,15 @@ class ImageSelector extends Component {
           styles.imageSelector, styles.imageButtonBase,
           'MuiButtonBase-root', 'MuiButton-root', 'MuiButton-outlined',
         )}
+        onClick={this.handleClick}
         focusVisibleClassName={styles.buttonFocusVisible}
       >
-      <span
-        className={styles.imageSrc}
-        style={{
-          backgroundImage: `url(${image.url})`,
-        }}
-      />
+        <span
+          className={styles.imageSrc}
+          style={{
+            backgroundImage: `url(${image.url})`,
+          }}
+        />
         <span className={styles.imageBackdrop} />
         <span className={styles.imageButton}>
           <Typography

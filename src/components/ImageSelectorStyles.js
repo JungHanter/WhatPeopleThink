@@ -11,7 +11,7 @@ const styles = theme => ({
     '&:hover, &$focusVisible': {
       zIndex: 1,
       '& $imageBackdrop': {
-        opacity: 0.15,
+        opacity: 0.2,
       },
       '& $imageMarked': {
         opacity: 0,
@@ -41,8 +41,8 @@ const styles = theme => ({
     top: 0,
     bottom: 0,
     backgroundColor: 'black',
-    opacity: 0.4,
-    // transition: theme.transitions.create('opacity'),
+    opacity: 0,
+    transition: theme.transitions.create('opacity'),
   },
 
   imageButton: {
@@ -70,6 +70,10 @@ const styles = theme => ({
     left: 'calc(50% - 9px)',
     transition: theme.transitions.create('opacity'),
   },
+
+  imageSelected: {
+    
+  }
 });
 
 export default styles;

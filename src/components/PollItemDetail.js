@@ -113,7 +113,7 @@ const PollItemDetail = ({editable}) => {
                   margin="normal"
                   variant="outlined"
                 />
-                <ImageSeletor />
+                <ImageSeletor defaultImage='https://i.imgur.com/mNS6wtc.jpg' />
               </Grid>
               <Grid item xs={12} sm={6}>
                 <Typography variant="h5" component="h5" gutterBottom>
@@ -136,8 +136,14 @@ const PollItemDetail = ({editable}) => {
             </Grid>
 
             <Button
-                className={styles.button}
-                size="large" variant="contained" color="primary" >
+              className={styles.button}
+              size="large" variant="contained" color="primary" >
+              게시하기
+            </Button>
+
+            <Button
+              className={styles.button}
+              size="large" variant="outlined" color="primary" >
               게시하기
             </Button>
           </form>
