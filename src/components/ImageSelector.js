@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
+import Icon from '@material-ui/core/Icon';
 
 import classNames from 'classnames';
 import styles from './ImageSelectorStyles';
@@ -75,11 +76,14 @@ class ImageSelector extends Component {
         focusRipple
         key={image.title}
         className={classNames(
-          styles.imageSelector, styles.imageButtonBase,
-          'MuiButtonBase-root', 'MuiButton-root', 'MuiButton-outlined',
+          styles.imageSelector,
+          'MuiButtonBase-root', 'MuiButton-root',
+          'MuiButton-outlined', 'MuiButton-outlinedPrimary',
+          {'imageSelected': image.selected}
         )}
+        color="primary"
         onClick={this.handleClick}
-        focusVisibleClassName={styles.buttonFocusVisible}
+        focusVisibleClassName={styles.imageButtonFocusVisible}
       >
         <span
           className={styles.imageSrc}
@@ -89,14 +93,15 @@ class ImageSelector extends Component {
         />
         <span className={styles.imageBackdrop} />
         <span className={styles.imageButton}>
+          <Icon className={styles.imageButtonIcon}
+                fontSize="large" >add</Icon>
           <Typography
             component="span"
             variant="subtitle1"
-            color="inherit"
-            className={styles.imageTitle}
+            color="primary"
+            className={styles.imageButtonTitle}
           >
-            +
-            <span className={styles.imageMarked} />
+            이미지 추가
           </Typography>
         </span>
       </ButtonBase>

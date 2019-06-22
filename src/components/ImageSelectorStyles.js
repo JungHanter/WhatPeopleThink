@@ -1,27 +1,32 @@
 // const styles = theme => console.log(theme) || ({
 const styles = theme => ({
-  imageButtonBase: {
-    overflow: 'hidden',
+  imageButtonFocusVisible: {
+    // borderWidth: 2,
+    borderColor: theme.palette.primary.main,
   },
   imageSelector: {
     position: 'relative',
     width: '100%',
     height: 0,
     paddingTop: '66.66667%',  //1.5:1
-    '&:hover, &$focusVisible': {
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: 'rgba(0, 0, 0, 0.23)',
+    '&:hover, &:focus, &$focusVisible': {
       zIndex: 1,
+      borderWidth: 1,
+      borderColor: theme.palette.primary.main,
       '& $imageBackdrop': {
-        opacity: 0.2,
+        opacity: 0.1,
       },
-      '& $imageMarked': {
-        opacity: 0,
+      '& $imageButtonIcon': {
+        color: theme.palette.primary.main,
       },
-      '& $imageTitle': {
-        border: '4px solid currentColor',
+      '& $imageButtonTitle': {
+        color: theme.palette.primary.main,
       },
     },
   },
-  buttonFocusVisible: {},
 
   imageSrc: {
     position: 'absolute',
@@ -40,7 +45,7 @@ const styles = theme => ({
     right: 0,
     top: 0,
     bottom: 0,
-    backgroundColor: 'black',
+    backgroundColor: theme.palette.primary.main,
     opacity: 0,
     transition: theme.transitions.create('opacity'),
   },
@@ -57,22 +62,26 @@ const styles = theme => ({
     color: 'white',
   },
 
-  imageTitle: {
+  imageButtonIcon: {
     position: 'relative',
-    padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) + 6}px`,
-  },
-  imageMarked: {
-    height: 3,
-    width: 18,
-    backgroundColor: 'black',
-    position: 'absolute',
-    bottom: -2,
-    left: 'calc(50% - 9px)',
-    transition: theme.transitions.create('opacity'),
+    color: theme.palette.text.secondary,
   },
 
+  imageButtonTitle: {
+    position: 'absolute',
+    bottom: '25%',
+    [theme.breakpoints.down('md')]: {
+      bottom: '20%',
+    },
+    [theme.breakpoints.down('xs')]: {
+      bottom: '15%',
+    },
+    color: theme.palette.text.secondary,
+  },
+
+
   imageSelected: {
-    
+
   }
 });
 
