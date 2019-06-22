@@ -91,19 +91,41 @@ class ImageSelector extends Component {
             backgroundImage: `url(${image.url})`,
           }}
         />
-        <span className={styles.imageBackdrop} />
-        <span className={styles.imageButton}>
-          <Icon className={styles.imageButtonIcon}
-                fontSize="large" >add</Icon>
-          <Typography
-            component="span"
-            variant="subtitle1"
-            color="primary"
-            className={styles.imageButtonTitle}
-          >
-            이미지 추가
-          </Typography>
-        </span>
+        {image.selected ? (
+          <React.Fragment>
+            <span className={classNames(styles.imageBackdrop, styles.removeButton)} />
+
+            <span className={styles.imageButton}>
+              <Icon className={classNames(styles.imageButtonIcon, styles.removeButton)}
+                    fontSize="large" >remove</Icon>
+              <Typography
+                component="span"
+                variant="subtitle1"
+                color="primary"
+                className={classNames(styles.imageButtonTitle, styles.removeButton)}
+              >
+                이미지 삭제
+              </Typography>
+            </span>
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            <span className={styles.imageBackdrop} />
+
+            <span className={styles.imageButton}>
+              <Icon className={styles.imageButtonIcon}
+                    fontSize="large" >add</Icon>
+              <Typography
+                component="span"
+                variant="subtitle1"
+                color="primary"
+                className={styles.imageButtonTitle}
+              >
+                이미지 추가
+              </Typography>
+            </span>
+          </React.Fragment>
+        )}
       </ButtonBase>
     );
   }

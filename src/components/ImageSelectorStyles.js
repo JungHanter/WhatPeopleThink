@@ -12,18 +12,37 @@ const styles = theme => ({
     overflow: 'hidden',
     borderWidth: 1,
     borderColor: 'rgba(0, 0, 0, 0.23)',
+
     '&:hover, &:focus, &$focusVisible': {
       zIndex: 1,
       borderWidth: 1,
       borderColor: theme.palette.primary.main,
       '& $imageBackdrop': {
         opacity: 0.1,
+        '&$removeButton': {
+          opacity: 0,
+        },
       },
       '& $imageButtonIcon': {
         color: theme.palette.primary.main,
+        '&$removeButton' : {
+          color: 'white',
+        },
       },
       '& $imageButtonTitle': {
         color: theme.palette.primary.main,
+        '&$removeButton' : {
+          color: 'white',
+        },
+      },
+    },
+
+    '&:hover': {
+      '& $imageButtonIcon$removeButton, & $imageButtonTitle$removeButton': {
+        opacity: 1,
+      },
+      '& $imageBackdrop$removeButton': {
+        opacity: '0.8 !important',
       },
     },
   },
@@ -79,10 +98,12 @@ const styles = theme => ({
     color: theme.palette.text.secondary,
   },
 
-
   imageSelected: {
+  },
+  removeButton: {
+    opacity: 0,
+  },
 
-  }
 });
 
 export default styles;
