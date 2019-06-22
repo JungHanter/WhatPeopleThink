@@ -30,6 +30,8 @@ class ImageSelector extends Component {
     }
   }
 
+  //https://codeburst.io/react-image-upload-with-kittens-cc96430eaece
+  //https://stackoverflow.com/questions/39913863/how-to-manually-trigger-click-event-in-reactjs
   handleClick = (e) => {
     const image = this.state.image;
 
@@ -38,13 +40,18 @@ class ImageSelector extends Component {
         {image: {selected: false, url: null}}
       );
     } else {
+      this.fileInput.click();
       this.setState(
         {image: {selected: true, url: 'https://i.imgur.com/mNS6wtc.jpg'}} //temp dummy
       );
     }
 
     this.props.onImageSelected(image.selected, image.url);
-  }
+  };
+
+  handleImageChange = (e) => {
+    console.log(e);
+  };
 
   //before mount with props --> change state when props updated
   componentWillMount() {
@@ -126,6 +133,10 @@ class ImageSelector extends Component {
             </span>
           </React.Fragment>
         )}
+        <input type='file' id='img'
+               ref={(ref) => {this.fileInput=ref}}
+               className={styles.fileInput}
+               onChange={this.handleImageChange} />
       </ButtonBase>
     );
   }

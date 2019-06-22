@@ -104,6 +104,11 @@ const styles = theme => ({
     opacity: 0,
   },
 
+  fileInput: {
+    visibility: 'hidden',
+    position: 'absolute'
+  },
+
 });
 
 export default styles;
