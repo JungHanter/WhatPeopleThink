@@ -27,9 +27,13 @@ class ImageSelector extends Component {
       //   url: 'https://i.imgur.com/mNS6wtc.jpg',
       // },
       initialized: false,
-    }
+      loading: false,
+    };
+
+    this.fileInput = React.createRef();
   }
 
+  //https://negabaro.github.io/react/2019/02/12/react-file-upload.html
   //https://codeburst.io/react-image-upload-with-kittens-cc96430eaece
   //https://stackoverflow.com/questions/39913863/how-to-manually-trigger-click-event-in-reactjs
   handleClick = (e) => {
@@ -41,16 +45,37 @@ class ImageSelector extends Component {
       );
     } else {
       this.fileInput.click();
-      this.setState(
-        {image: {selected: true, url: 'https://i.imgur.com/mNS6wtc.jpg'}} //temp dummy
-      );
+      // this.setState(
+      //   {image: {selected: true, url: 'https://i.imgur.com/mNS6wtc.jpg'}} //temp dummy
+      // );
     }
 
     this.props.onImageSelected(image.selected, image.url);
   };
 
   handleImageChange = (e) => {
-    console.log(e);
+    e.preventDefault();
+
+    let file = e.target.files[0];
+    if (file == null) return;
+    else if (!file.name.match(/.(jpg|jpeg|png)$/i)) {
+      alert("지원하지 않는 이미지 형식입니다.");
+    } else {
+      console.log(file);
+      let reader = new FileReader();
+      reader.onloadend = () => {
+        this.setState({
+          image: {selected: true, url: reader.result}
+        })
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // reader.onload = () => {
+    //   this.setState({
+    //     image: {select: true}
+    //   });
+    // };
   };
 
   //before mount with props --> change state when props updated
@@ -63,15 +88,13 @@ class ImageSelector extends Component {
           url: this.props.defaultImage,
         },
       });
-      console.log ("Intialize Image with url=" + this.props.defaultImage);
+      console.log ("Initialize Image with url=" + this.props.defaultImage);
     }
 
     //initial image once
     this.setState({
       initialized: true,
     });
-
-    console.log("componentWillMount()");
   }
 
   render() {
@@ -134,6 +157,7 @@ class ImageSelector extends Component {
           </React.Fragment>
         )}
         <input type='file' id='img'
+               accept=".png, .jpg, .jpeg"
                ref={(ref) => {this.fileInput=ref}}
                className={styles.fileInput}
                onChange={this.handleImageChange} />
