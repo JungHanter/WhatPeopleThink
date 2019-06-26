@@ -28,7 +28,7 @@ class ImageSelector extends Component {
       //   url: 'https://i.imgur.com/mNS6wtc.jpg',
       // },
       initialized: false,
-      loading: true,
+      loading: false,
     };
 
     this.fileInput = React.createRef();
@@ -138,15 +138,15 @@ class ImageSelector extends Component {
           }}
         />
 
-        {loading ? (
-          <React.Fragment>
-            <span className={styles.loadingBackdrop} />
 
-            <span className={styles.imageLoading}>
-              <CircularProgress size={60}/>
-            </span>
-          </React.Fragment>
-        ) : ( image.selected ? (
+        <div className={classNames(styles.imageLoading, {'hide': !loading})}>
+          <span className={styles.imageLoadingProgress}>
+            <CircularProgress size={60}/>
+          </span>
+          <span className={styles.loadingBackdrop} />
+        </div>
+
+        { image.selected ? (
           <React.Fragment>
             <span className={classNames(styles.imageBackdrop, styles.removeButton)} />
 
@@ -180,7 +180,7 @@ class ImageSelector extends Component {
               </Typography>
             </span>
           </React.Fragment>
-        )) }
+        ) }
         <input type='file' id='img'
                accept=".png, .jpg, .jpeg"
                ref={(ref) => {this.fileInput=ref}}

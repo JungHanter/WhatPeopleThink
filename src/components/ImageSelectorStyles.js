@@ -81,6 +81,12 @@ const styles = theme => ({
   },
 
   imageLoading: {
+    display: 'block',
+    '&.hide': {
+      display: 'none',
+    }
+  },
+  imageLoadingProgress: {
     position: 'absolute',
     left: 0,
     right: 0,
@@ -91,7 +97,6 @@ const styles = theme => ({
     justifyContent: 'center',
     color: 'white',
   },
-
   imageButton: {
     position: 'absolute',
     left: 0,
