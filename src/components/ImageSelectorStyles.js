@@ -69,6 +69,29 @@ const styles = theme => ({
     transition: theme.transitions.create('opacity'),
   },
 
+  loadingBackdrop: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    backgroundColor: theme.palette.primary.main,
+    opacity: 0.2,
+    transition: theme.transitions.create('opacity'),
+  },
+
+  imageLoading: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: 'white',
+  },
+
   imageButton: {
     position: 'absolute',
     left: 0,
@@ -100,6 +123,7 @@ const styles = theme => ({
 
   imageSelected: {
   },
+
   removeButton: {
     opacity: 0,
   },

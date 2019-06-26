@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
+import CircularProgress from '@material-ui/core/CircularProgress'
 import Icon from '@material-ui/core/Icon';
 
 import classNames from 'classnames';
@@ -27,7 +28,7 @@ class ImageSelector extends Component {
       //   url: 'https://i.imgur.com/mNS6wtc.jpg',
       // },
       initialized: false,
-      loading: false,
+      loading: true,
     };
 
     this.fileInput = React.createRef();
@@ -57,17 +58,31 @@ class ImageSelector extends Component {
     e.preventDefault();
 
     let file = e.target.files[0];
-    if (file == null) return;
-    else if (!file.name.match(/.(jpg|jpeg|png)$/i)) {
+    if (file == null) {
+      //pass
+    } else if (!file.name.match(/.(jpg|jpeg|png)$/i)) {
       alert("지원하지 않는 이미지 형식입니다.");
     } else {
-      console.log(file);
+      this.setState({
+        loading: true,
+      });
+
       let reader = new FileReader();
       reader.onloadend = () => {
+        console.log("Image Loaded");
         this.setState({
-          image: {selected: true, url: reader.result}
-        })
+          image: {selected: true, url: reader.result},
+          loading: false,
+        });
       };
+
+      reader.onabort = reader.onerror = () => {
+        this.setState({
+          image: {selected: false, url: null},
+          loading: false,
+        });
+      };
+
       reader.readAsDataURL(file);
     }
 
@@ -99,11 +114,12 @@ class ImageSelector extends Component {
 
   render() {
     const styles = this.props.classes;
-    const image = this.state.image;
+    const { image, loading } = this.state;
 
     return (
       <ButtonBase
         focusRipple
+        href=""
         key={image.title}
         className={classNames(
           styles.imageSelector,
@@ -121,7 +137,16 @@ class ImageSelector extends Component {
             backgroundImage: `url(${image.url})`,
           }}
         />
-        {image.selected ? (
+
+        {loading ? (
+          <React.Fragment>
+            <span className={styles.loadingBackdrop} />
+
+            <span className={styles.imageLoading}>
+              <CircularProgress size={60}/>
+            </span>
+          </React.Fragment>
+        ) : ( image.selected ? (
           <React.Fragment>
             <span className={classNames(styles.imageBackdrop, styles.removeButton)} />
 
@@ -155,7 +180,7 @@ class ImageSelector extends Component {
               </Typography>
             </span>
           </React.Fragment>
-        )}
+        )) }
         <input type='file' id='img'
                accept=".png, .jpg, .jpeg"
                ref={(ref) => {this.fileInput=ref}}
