@@ -79,7 +79,8 @@ function App() {
         <div className={styles.root}>
           <Route exact path="/" component={MainPage} /> {/* exact keyword for matching root(/) path */}
           <Route exact path="/poll" component={PollPage} />
-          <Route path="/poll/item" component={PollItemPage} />
+          <Route exact path="/poll/item" component={PollItemPage} />
+          <Route path="/poll/item/:pollId" component={PollItemPage} />
         </div>
 
       </Fragment>

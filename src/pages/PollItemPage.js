@@ -7,10 +7,12 @@ import Typography from '@material-ui/core/Typography';
 import useStyles from './styles';
 import {PropTypes} from "prop-types";
 
-const PollItemPage = ({newItem, itemId}) => {
+const PollItemPage = ({match}) => {
   const styles = useStyles();
 
-  const [editMode, setEditMode] = React.useState(true);
+  const pollId = match.params.pollId;
+  const newItem = !pollId;
+  const [editMode, setEditMode] = React.useState(!pollId);
 
   return (
     <Fragment>
@@ -26,13 +28,13 @@ const PollItemPage = ({newItem, itemId}) => {
 };
 
 PollItemPage.defaultProps = {
-  newItem: true,
-  itemId: 0,
+  // newItem: true,
+  // pollId: -1,
 };
 
 PollItemPage.propsTypes = {
-  newItem: PropTypes.bool,
-  itemId: PropTypes.number,
+  // newItem: PropTypes.bool,
+  // pollId: PropTypes.number,
 };
 
 export default PollItemPage;
